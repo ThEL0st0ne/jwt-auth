@@ -25,4 +25,16 @@ app.use(express.static("public"))                   //to store files or images i
 
 app.use(cookieParser())
 
+//router import
+import userRouter from "../src/routes/user.route.js"
+
+//routes declaration
+app.get("/", (req,res) => {
+    res.send("yo")
+})
+
+app.use("/api/v1/users",userRouter)
+
+//http://localhost:8000/api/v1/users/register
+
 export {app}
