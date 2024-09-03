@@ -56,7 +56,7 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function (next) {        // "next" since middleware
     if (!this.isModified("password")) return next()
-    this.password = bcrypt.hash(this.password, 10)     //10 means hasing for 10 rounds (check docs)
+    this.password = await bcrypt.hash(this.password, 10)     //10 means hasing for 10 rounds (check docs)
     next()
 })
 
