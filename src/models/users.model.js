@@ -5,8 +5,6 @@ import dotenv from "dotenv";
 
 dotenv.config()
 
-
-
 const userSchema = new Schema(
     {
         username: {
@@ -61,7 +59,7 @@ userSchema.pre("save", async function (next) {        // "next" since middleware
 })
 
 userSchema.methods.isPasswordCorrect = async function (password) {
-    return await bcrypt.compare(password, this.password)
+    return await bcrypt.compare(password, this.password)               //This type of user written methods are accesed by the returned user instance that you take from db
 }
 
 userSchema.methods.generateAccessToken = function(){
