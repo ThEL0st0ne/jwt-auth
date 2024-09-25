@@ -58,8 +58,8 @@ userSchema.pre("save", async function (next) {        // "next" since middleware
     next()
 })
 
-userSchema.methods.isPasswordCorrect = async function (password) {
-    return await bcrypt.compare(password, this.password)               //This type of user written methods are accesed by the returned user instance that you take from db
+userSchema.methods.isPasswordCorrect = async function (password){
+    return await bcrypt.compare(password, this.password)  //This type of user written methods are accesed by the returned user instance that you take from db          
 }
 
 userSchema.methods.generateAccessToken = function(){
